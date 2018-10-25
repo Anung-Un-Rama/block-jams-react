@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
+import SongRow from './SongRow';
 
 class Album extends Component {
   constructor(props) {
@@ -11,10 +12,40 @@ class Album extends Component {
     });
 
     this.state = {
-      album: album
+      album: album,
+      currentSong: album.songs[0],
+      isPlaying: false
     };
+    this.audioElement = document.createElement('audio');
+    this.audioElement.src = album.songs[0].audioSrc;
   }
+    play() {
+      this.audioElement.play();
+      this.setState({ isPlaying: true });
+    }
 
+    pause() {
+      this.audioElement.pause();
+      this.setState({ isPlaying: false });
+    }
+
+    setSong(song) {
+      this.audioElement.src = song.audioSrc;
+      this.setState({ currentSong: song});
+    }
+
+    handleSongClick(song) {
+      if (this.state.isPlaying && this.isSameSong(song)) {
+        this.pause();
+      } else{
+        if (!this.isSameSong(song)) { this.setSong(song); }
+        this.play();
+      }
+    }
+
+    isSameSong(song) {
+      return this.state.currentSong === song;
+    }
 
   render() {
     return (
@@ -22,9 +53,6 @@ class Album extends Component {
         <section id="album-info">
           <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title}/>
           <div className="album-details">
-            <h1 id="album-title"></h1>
-            <h2 className="artist"></h2>
-            <div id="release-info"></div>
             <h1 id="album-title">{this.state.album.title}</h1>
             <h2 className="artist">{this.state.album.artist}</h2>
             <div id="release-info">{this.state.album.releaseInfo}</div>
@@ -32,37 +60,27 @@ class Album extends Component {
         </section>
         <table id="song-list">
           <colgroup>
-            col id="song-number-column" />
-            col id="song-title-column" />
-            col id="song-duration-column" />
-          </colgroup>
-
+            <col id="song-number-column" />
+            <col id="song-title-column" />
+            <col id="song-duration-column" />
+         </colgroup>
           <tbody>
-            {this.state.album.songs.map( (song, index, ) =>
-               <tr key={index} >
-                    <td> track: {index + 1} / </td>
-                    <td> {song.title} / </td>
-                    <td> time: {song.duration}</td>
-                </tr>
-          )}
-          </tbody>
+            {this.state.album.songs.map( (song, index ) =>
+              <SongRow  key={index}
+                        song={song}
+                        onClick={() => this.handleSongClick(song)}
+                        trackNumber={index + 1}
+                        isPlaying={this.state.isPlaying}
+                        selectedSong={this.isSameSong(song)}/>
 
-        </table>
+            )}
+            </tbody>
+          </table>
       </section>
     );
   }
 }
 
-
-/*
-
-this.state.albums.map( (album, index) =>
-  <Link to={`/album/${album.slug}`} key={index} >
-     <img src={album.albumCover} alt={album.title} />
-     <div>{album.title}</div>
-     <div>{album.artist}</div>
-     <div>{album.songs.length} songs</div>
-*/
 
 
 export default Album;

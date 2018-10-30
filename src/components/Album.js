@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
+import SongRow from './SongRow';
+import PlayerBar from './PlayerBar';
 
 class Album extends Component {
   constructor(props) {
@@ -11,10 +13,56 @@ class Album extends Component {
     });
 
     this.state = {
-      album: album
+      album: album,
+      currentSong: album.songs[0],
+      isPlaying: false
     };
+    this.audioElement = document.createElement('audio');
+    this.audioElement.src = album.songs[0].audioSrc;
   }
+    play() {
+      this.audioElement.play();
+      this.setState({ isPlaying: true });
+    }
 
+    pause() {
+      this.audioElement.pause();
+      this.setState({ isPlaying: false });
+    }
+
+    setSong(song) {
+      this.audioElement.src = song.audioSrc;
+      this.setState({ currentSong: song});
+    }
+
+    handleSongClick(song) {
+      if (this.state.isPlaying && this.isSameSong(song)) {
+        this.pause();
+      } else{
+        if (!this.isSameSong(song)) { this.setSong(song); }
+        this.play();
+      }
+    }
+
+    handlePrevClick() {
+      const currentIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
+      const newIndex = Math.max(0, currentIndex -1);
+      const newSong = this.state.album.songs[newIndex];
+      this.setSong(newSong);
+      this.play();
+    }
+
+    handleNextClick() {
+      const currentIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
+      const newIndex = Math.min((this.state.album.songs.length - 1), currentIndex + 1);
+      const newSong = this.state.album.songs[newIndex];
+      this.setSong(newSong);
+      this.play(newSong);
+    }
+
+    isSameSong(song) {
+      return this.state.currentSong === song;
+    }
 
   render() {
     return (
@@ -22,9 +70,6 @@ class Album extends Component {
         <section id="album-info">
           <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title}/>
           <div className="album-details">
-            <h1 id="album-title"></h1>
-            <h2 className="artist"></h2>
-            <div id="release-info"></div>
             <h1 id="album-title">{this.state.album.title}</h1>
             <h2 className="artist">{this.state.album.artist}</h2>
             <div id="release-info">{this.state.album.releaseInfo}</div>
@@ -32,27 +77,32 @@ class Album extends Component {
         </section>
         <table id="song-list">
           <colgroup>
-            col id="song-number-column" />
-            col id="song-title-column" />
-            col id="song-duration-column" />
-          </colgroup>
-
+            <col id="song-number-column" />
+            <col id="song-title-column" />
+            <col id="song-duration-column" />
+         </colgroup>
           <tbody>
-            {this.state.album.songs.map( (song, index, ) =>
-               <tr key={index} >
-                    <td> track: {index + 1} / </td>
-                    <td> {song.title} / </td>
-                    <td> time: {song.duration}</td>
-                </tr>
-          )}
+            {this.state.album.songs.map( (song, index ) =>
+              <SongRow  key={index}
+                        song={song}
+                        onClick={() => this.handleSongClick(song)}
+                        trackNumber={index + 1}
+                        isPlaying={this.state.isPlaying}
+                        selectedSong={this.isSameSong(song)}/>
+                      )}
           </tbody>
-
         </table>
+        <PlayerBar
+          isPlaying={this.state.isPlaying}
+          currentSong={this.state.currentSong}
+          handleSongClick={() => this.handleSongClick(this.state.currentSong)}
+          handlePrevClick={() => this.handlePrevClick()}
+          handleNextClick={() => this.handleNextClick()}
+        />
       </section>
     );
   }
 }
-
 
 
 

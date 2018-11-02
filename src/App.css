@@ -1,3 +1,32 @@
+
+/* ----Landing CSS---- */
+
+
+.point h2 {
+  color :#7D8979;
+}
+
+.hero-title {
+  background-color: #ABBCA6;
+}
+
+section.selling-points {
+  background-color: #ABBCA6;
+}
+
+.point-description {
+
+}
+
+
+/*----Library CSS----*/
+
+
+
+/*----Album CSS----*/
+
+
+
 .App {
   text-align: center;
 }
@@ -7,19 +36,21 @@
   height: 40vmin;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App header {
+  border-radius: 10px 10px 10px 10px;
+  background-color: #cccfe1;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #7D8979;
 }
 
-.App-link {
-  color: #61dafb;
+
+.App a {
+  color: #7D8979;
 }
 
 @keyframes App-logo-spin {

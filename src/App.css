@@ -1,34 +1,72 @@
 
 /* ----Landing CSS---- */
+.App header {
+  border-radius: 50px 50px;
+  background-color: #cccfe1;
+  min-height: 25vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #788474;
+}
 
-
-.point h2 {
-  color :#7D8979;
+.landing {
+  background-color:#ABBCA6;
+  text-align: center;
+  margin: 50px;
+  border-radius: 10px;
 }
 
 .hero-title {
-  background-color: #ABBCA6;
+  padding-top: 50px
+}
+.selling-points {
+  background-color:#ABBCA6;
+  padding:100px;
+  border-radius: 50px 100px;
 }
 
-section.selling-points {
-  background-color: #ABBCA6;
+.point-title {
+  background-color:#7D8979;
+  padding:25px;
+  display: grid;
+  border-radius: 100px 50px;
 }
+
+.choose {
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+}
+
+.unlimited {
+  padding: 10px;
+}
+
+.phone {
+  padding: 15px;
+}
+
 
 .point-description {
-
+  text-align: left;
 }
 
+.choose {
+  margin: 50px;
+  text-align: right;
+}
+.point {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
-/*----Library CSS----*/
-
-
-
-/*----Album CSS----*/
-
-
-
-.App {
-  text-align: center;
+.point:nth-child(even) {
+  align-items: center;
+  flex-direction: row-reverse;
 }
 
 .App-logo {
@@ -36,21 +74,9 @@ section.selling-points {
   height: 40vmin;
 }
 
-.App header {
-  border-radius: 10px 10px 10px 10px;
-  background-color: #cccfe1;
-  min-height: 50vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #7D8979;
-}
-
-
 .App a {
   color: #7D8979;
+  margin: 5px 5px 5px 5px;
 }
 
 @keyframes App-logo-spin {
@@ -60,4 +86,43 @@ section.selling-points {
   to {
     transform: rotate(360deg);
   }
+}
+
+
+/*----Library CSS----*/
+.library {
+  display: flex;
+  padding: 50px;
+  margin: 75px;
+  background-color: #7D8979;
+  border-radius: 50px;
+}
+
+.album-covers {
+  padding: 15px 15px 10px 75px;
+
+}
+
+.albums {
+  padding: 25px;
+  text-align: center;
+  color: #000000;
+}
+
+
+/*----Album CSS----*/
+.album {
+  padding: 25px;
+  text-align: center;
+  color: #000000;
+  background-color: #7D8979;
+  border-radius: 50px;
+  margin: 25px;
+}
+
+.album, #album-cover-art{
+  margin-top: 35px;
+}
+#song-list {
+  padding: 50px 50px 50px 700px;
 }

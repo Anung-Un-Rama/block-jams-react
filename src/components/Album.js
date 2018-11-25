@@ -118,13 +118,13 @@ class Album extends Component {
       }  else this.setState({ volume: 0});
     }
 
-  /*  handleFadeOut() {
+    handleFadeOut() {
       if (this.state.volume <= 0) {
         const newVolume = this.state.volume == 0.1;
         this.audioElement.volume = Math.max(0, newVolume);
         this.setState({});
-      } interval / timeout to diminish volume littel by litte. Solve algorithm.
-    } */
+      } 
+    }
 
 
     handleVolumeUpClick(e) {

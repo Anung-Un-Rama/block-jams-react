@@ -1,130 +1,150 @@
-
 /* ----Landing CSS---- */
+
 .App header {
-  border-radius: 50px 50px;
-  background-color: #cccfe1;
-  min-height: 25vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #788474;
+    border-radius: 50px 50px;
+    background-color: #ffbf00;
+    min-height: 25vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    /* box shadow */
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+#site-title {
+    color: #f8fbfc;
+    text-shadow: -5px 5px 0px #00e6e6, -10px 10px 0px #01cccc, -15px 15px 0px #00bdbd;
+}
+
+.nav-links {
+    color: white;
 }
 
 .landing {
-  background-color:#ABBCA6;
-  text-align: center;
-  margin: 50px;
-  border-radius: 10px;
+    background-color: #ff8000;
+    text-align: center;
+    margin: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
 .hero-title {
-  padding-top: 50px
+    padding-top: 50px;
 }
+
 .selling-points {
-  background-color:#ABBCA6;
-  padding:100px;
-  border-radius: 50px 100px;
+    background-color: rgb(247, 243, 241);
+    padding: 100px;
+    border-radius: 50px 100px;
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
 .point-title {
-  background-color:#7D8979;
-  padding:25px;
-  display: grid;
-  border-radius: 100px 50px;
+    background-color: #ff8000;
+    padding: 25px;
+    display: grid;
+    border-radius: 100px 50px;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .choose {
-  width: 100px;
-  height: 100px;
-  padding: 10px;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
 }
 
 .unlimited {
-  padding: 10px;
+    padding: 10px;
 }
 
 .phone {
-  padding: 15px;
+    padding: 15px;
 }
 
-
 .point-description {
-  text-align: left;
+    text-align: left;
 }
 
 .choose {
-  margin: 50px;
-  text-align: right;
+    margin: 50px;
+    text-align: right;
 }
+
 .point {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .point:nth-child(even) {
-  align-items: center;
-  flex-direction: row-reverse;
+    align-items: center;
+    flex-direction: row-reverse;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+    animation: App-logo-spin infinite 20s linear;
+    height: 40vmin;
 }
 
 .App a {
-  color: #7D8979;
-  margin: 5px 5px 5px 5px;
+    color: white;
+    margin: 5px 5px 5px 5px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 
 /*----Library CSS----*/
+
 .library {
-  display: flex;
-  padding: 50px;
-  margin: 75px;
-  background-color: #7D8979;
-  border-radius: 50px;
+    display: flex;
+    padding: 50px;
+    margin: 75px;
+    background-color: #7D8979;
+    border-radius: 50px;
 }
 
 .album-covers {
-  padding: 15px 15px 10px 75px;
-
+    padding: 15px 15px 10px 75px;
 }
 
 .albums {
-  padding: 25px;
-  text-align: center;
-  color: #000000;
+    padding: 25px;
+    text-align: center;
+    color: #000000;
 }
 
 
 /*----Album CSS----*/
+
 .album {
-  padding: 25px;
-  text-align: center;
-  color: #000000;
-  background-color: #7D8979;
-  border-radius: 50px;
-  margin: 25px;
+    padding: 25px;
+    text-align: center;
+    color: #000000;
+    background-color: #7D8979;
+    border-radius: 50px;
+    margin: 25px;
 }
 
-.album, #album-cover-art{
-  margin-top: 35px;
+.album,
+#album-cover-art {
+    margin-top: 35px;
 }
+
 #song-list {
-  display: grid;
-  justify-content: center;
-  padding:25px;
+    display: grid;
+    justify-content: center;
+    padding: 25px;
 }
